@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+    border: border-box;
+}
+.mainContainer{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.innerContainer{
+    width: 80%;
+    height: 80%;
+    flex-direction: column;
+    display: flex;
+    
+    align-items: center;
+}
+.buttonsDiv{
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 350px;
+    width: 350px;
+    margin: 10px;
+}
+.rows{
+    display: flex;
+}
+.btn{
+    height: 100px;
+    width: 100px;
+    border: 5px solid black;
+    border-radius: 10px;
+    margin:15px ;
+}
+.btn1{
+    background-color: red;
+}
+.btn2{
+    background-color: green;
+}
+.btn3{
+    background-color: blue;
+}
+.btn4{
+    background-color: yellow;
+}
+h3{
+    margin-top: 15px;
+}
+.flash{
+    background-color: white;
+}
+.userflash{
+    background-color: black;
+}
