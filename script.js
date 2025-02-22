@@ -4,7 +4,7 @@ let userseq=[];
 let GameStarted = false;
 let levelcount = 0;
 
-let buttons = ["btn1","btn2","btn3","btn4"]
+let buttons = ["red","green","blue","yellow"]
 
 let h3=document.querySelector("h3");
 let h2=document.querySelector("h2");
@@ -25,6 +25,8 @@ function levelup(){
     let blink = Math.floor(Math.random()*3);
     let randomcolor = buttons[blink];
     let randombutton = document.querySelector(`.${randomcolor}`)
+    gameseq.push(randomcolor);
+    console.log(gameseq);
     flash(randombutton);
 }
 
@@ -46,9 +48,17 @@ function userflash(button){
 function keypressbyuser(){
     let button = this;
     userflash(button);
+    let usercolor = button.getAttribute("id");
+    userseq.push(usercolor)
+
+    check();
 }
 
 let fourbuttons = document.querySelectorAll(".btn");
 for(btn of fourbuttons){
     btn.addEventListener("click",keypressbyuser);
+}
+
+function check(){
+    console.log("current level : ",levelcount);
 }
