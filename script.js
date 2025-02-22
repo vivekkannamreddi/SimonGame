@@ -18,6 +18,7 @@ document.addEventListener("keypress",function (){
     }
 })
 function levelup(){
+    userseq=[];
     levelcount++;
     h3.innerText=`level ${levelcount}`
 
@@ -45,20 +46,48 @@ function userflash(button){
         button.classList.remove("userflash");
     },100)
 }
-function keypressbyuser(){
-    let button = this;
-    userflash(button);
-    let usercolor = button.getAttribute("id");
-    userseq.push(usercolor)
-
-    check();
-}
 
 let fourbuttons = document.querySelectorAll(".btn");
 for(btn of fourbuttons){
     btn.addEventListener("click",keypressbyuser);
 }
 
-function check(){
-    console.log("current level : ",levelcount);
+function keypressbyuser(){
+    let button = this;
+    userflash(button);
+    let usercolor = button.getAttribute("id");
+    userseq.push(usercolor)
+
+    check(userseq.length-1);
+}
+
+
+
+function check(index){
+    if(userseq[index] === gameseq[index]){
+        if(userseq.length==gameseq.length){
+            setTimeout(() => {
+                levelup();
+            }, 1000);
+        }
+    }
+    else{
+        
+        h2.innerHTML=`you loose :( and your score was <b>${levelcount}</b>)`;
+        h3.innerText="press any key to start!!"
+        let body = document.querySelector("body");
+        body.classList.add("backgroundRed");
+        setTimeout(function (){
+            body.classList.remove("backgroundRed");
+        },200)
+        reset();
+
+    }
+}
+function reset(){
+    GameStarted=false;
+    userseq = [];
+    gameseq = [];
+    levelcount=0
+    
 }
